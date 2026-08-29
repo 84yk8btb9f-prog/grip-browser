@@ -12,7 +12,7 @@ pip install "grip-browser[mcp]"
 This installs the `grip-mcp` console script alongside the base `grip` package.
 Optional: set `ANTHROPIC_API_KEY` or `OPENAI_API_KEY` in the environment the
 server runs in if you want the `run` tool (goal-based autonomous browsing) —
-the other eleven tools don't need an LLM key.
+the other eighteen tools don't need an LLM key.
 
 ## Claude Code
 
@@ -102,12 +102,19 @@ Any of the configs above accept an `env` block:
 | `click` | `target` | Click an element by description or ref |
 | `type` | `target`, `text` | Type text into an input |
 | `select` | `target`, `value` | Choose an option in a `<select>` dropdown, by visible option text (preferred) or its value attribute |
+| `hover` | `target` | Move the pointer over an element without clicking it, to reveal a hover-only menu/tooltip |
+| `wait_for` | `text`/`ref`/`selector`, `timeout` | Block until a condition on the live page becomes true, then re-snapshot |
+| `scroll` | `direction`, `pages`, `ref` | Scroll the viewport, or bring a specific element into view |
 | `read` | — | Read the page as citable prose blocks, boilerplate removed |
+| `press` | `key` | Press a key (e.g. `Enter`, `Tab`) on the page |
+| `upload` | `target`, `paths` | Set one or more local file paths on a `<input type=file>` |
+| `links` | — | Re-snapshot and list every fetchable link's text and absolute URL |
+| `popups_blocked` | — | Count of `window.open()`/`target="_blank"` attempts refused by popup blocking so far |
 | `screenshot` | — | Capture a JPEG screenshot of the current page, base64-encoded |
-| `run` | `goal`, `url` | Drive the browser toward a goal autonomously (needs an LLM key) |
 | `list_tabs` | — | List open tabs (`target_id`, url, which one is active) |
 | `switch_tab` | `target_id` | Make an already-open tab active for subsequent tool calls |
 | `close_tab` | `target_id` (optional) | Close a tab; the active tab if `target_id` is omitted |
+| `run` | `goal`, `url` | Drive the browser toward a goal autonomously (needs an LLM key) |
 
 `open` and `run` are the only tools that don't require a prior `open` call —
 every other tool operates on the page `open`/`run` left current, i.e. the

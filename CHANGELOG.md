@@ -4,6 +4,18 @@ All notable changes to this project are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.8.3] - 2026-08-29
+
+Docs only. No change to any code path.
+
+### Fixed
+
+- **The MCP tool count was stale in two places.** `grip-mcp` registers
+  nineteen tools, not the eight the README named or the twelve `docs/mcp.md`
+  listed — `select`, `hover`, `wait_for`, `scroll`, `press`, `upload`,
+  `links` and `popups_blocked` were added after both were last updated. Both
+  now name and list all nineteen.
+
 ## [0.8.2] - 2026-08-17
 
 Packaging only. No change to any code path: `grip/` is byte-identical to

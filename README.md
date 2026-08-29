@@ -631,8 +631,10 @@ picks an adapter from `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`
 
 ## MCP Server
 
-`grip-mcp` runs grip as a stdio MCP server — eight tools (`open`, `goto`,
-`snapshot`, `click`, `type`, `read`, `screenshot`, `run`), the same delta
+`grip-mcp` runs grip as a stdio MCP server — nineteen tools (`open`, `goto`,
+`snapshot`, `click`, `type`, `select`, `hover`, `wait_for`, `scroll`, `read`,
+`press`, `upload`, `links`, `popups_blocked`, `screenshot`, `list_tabs`,
+`switch_tab`, `close_tab`, `run`), the same delta
 compression as the SDK, and no session registry (one browser, one page, per
 process). Copy-paste config for Claude Code, Claude Desktop, and Cursor, plus
 the full tool reference: **[docs/mcp.md](https://github.com/nikolas-sapa/grip-browser/blob/main/docs/mcp.md)**.
